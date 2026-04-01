@@ -5,12 +5,21 @@
 **TCC — Pós-Graduação em Ciência de Dados com Inteligência Artificial**
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.35%2B-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://projeto-segmentacao-clientes-unisenai.streamlit.app/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4%2B-F7931E?logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Metodologia](https://img.shields.io/badge/Metodologia-CRISP--DM-9B59B6)](https://www.datascience-pm.com/crisp-dm-2/)
 
+### 🚀 [Acesse a Aplicação ao Vivo](https://projeto-segmentacao-clientes-unisenai.streamlit.app/)
+
 </div>
+
+---
+
+## 🌐 Demo ao Vivo
+
+> **Aplicação disponível sem instalação:**
+> **[https://projeto-segmentacao-clientes-unisenai.streamlit.app/](https://projeto-segmentacao-clientes-unisenai.streamlit.app/)**
 
 ---
 
