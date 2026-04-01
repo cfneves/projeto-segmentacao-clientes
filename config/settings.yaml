@@ -1,0 +1,116 @@
+# config/settings.yaml
+# ─── Configuração central do projeto — Segmentação de Clientes ────────────────
+# Altere aqui sem precisar modificar código-fonte.
+
+# ─── Metadados do projeto ─────────────────────────────────────────────────────
+project:
+  name: "Segmentação de Clientes — TCC UniSENAI"
+  version: "2.0.0"
+  author: "Cláudio Ferreira Neves"
+  institution: "UniSENAI — Pós-Graduação Ciência de Dados e IA"
+  methodology: "CRISP-DM"
+  year: 2025
+
+# ─── Configurações do modelo K-Means ──────────────────────────────────────────
+model:
+  n_clusters_default: 5      # K recomendado pelo método do cotovelo
+  n_clusters_min: 2          # Mínimo para silhouette score ser calculado
+  n_clusters_max: 10         # Máximo exibido no slider da UI
+  init: "k-means++"          # Inicialização inteligente (evita mínimos locais)
+  random_state: 42            # Semente para reprodutibilidade total
+  n_init: 10                  # Execuções com inicializações diferentes
+  max_iter: 300               # Iterações máximas por execução
+  k_max_elbow: 10             # K máximo para o gráfico do cotovelo
+
+# ─── Fonte de dados ────────────────────────────────────────────────────────────
+data:
+  url: "https://raw.githubusercontent.com/SteffiPeTaffy/machineLearningAZ/master/Machine%20Learning%20A-Z%20Template%20Folder/Part%204%20-%20Clustering/Section%2025%20-%20Hierarchical%20Clustering/Mall_Customers.csv"
+  local_path: "data/Mall_Customers.csv"
+  sample_path: "data/sample_customers.csv"
+  standard_columns:
+    - "CustomerID"
+    - "Genre"
+    - "Age"
+    - "Annual Income (k$)"
+    - "Spending Score (1-100)"
+  default_features:
+    - "Annual Income (k$)"
+    - "Spending Score (1-100)"
+
+# ─── Personas de negócio ──────────────────────────────────────────────────────
+# Lógica de classificação: posição do centroide vs. medianas do dataset
+personas:
+  income_feature: "Annual Income (k$)"
+  spend_feature: "Spending Score (1-100)"
+  definitions:
+    - name: "Clientes Alvo (VIPs)"
+      income_level: "high"
+      spend_level: "high"
+      color: "#4ecca3"
+      box_type: "success"
+      action: "Priorizar retenção, programa de fidelidade premium e benefícios personalizados."
+
+    - name: "Econômicos Ricos"
+      income_level: "high"
+      spend_level: "low"
+      color: "#4895ef"
+      box_type: "info"
+      action: "Ativar com produtos premium, cross-sell e experiências exclusivas."
+
+    - name: "Gastadores (Impulsivos)"
+      income_level: "low"
+      spend_level: "high"
+      color: "#f7b731"
+      box_type: "warning"
+      action: "Campanhas de tendências, lançamentos relâmpago e marketing de urgência."
+
+    - name: "Cautelosos"
+      income_level: "low"
+      spend_level: "low"
+      color: "#e94560"
+      box_type: "error"
+      action: "Focar em promoções de itens essenciais e comunicação de custo-benefício."
+
+    - name: "Clientes Padrão"
+      income_level: "medium"
+      spend_level: "medium"
+      color: "#a29bfe"
+      box_type: "info"
+      action: "Nutrir com ofertas segmentadas para elevar frequência e ticket médio."
+
+# ─── Configurações da UI / Streamlit ─────────────────────────────────────────
+ui:
+  page_title: "Segmentação de Clientes"
+  page_icon: "🛍️"
+  layout: "wide"
+  sidebar_state: "expanded"
+  theme:
+    sidebar_bg: "#1a1a2e"
+    plot_bg: "#0f3460"
+    paper_bg: "#16213e"
+    font_color: "#eaeaea"
+    accent_primary: "#e94560"
+    accent_secondary: "#4ecca3"
+    neutral: "#8888aa"
+
+# ─── Avaliação ────────────────────────────────────────────────────────────────
+# Limiares qualitativos para as métricas
+evaluation:
+  silhouette:
+    excellent: 0.70
+    good: 0.50
+    moderate: 0.25
+    # abaixo de moderate = fraco
+    direction: "higher_is_better"
+
+  davies_bouldin:
+    excellent: 0.50
+    good: 1.00
+    moderate: 1.50
+    direction: "lower_is_better"
+
+  calinski_harabasz:
+    excellent: 500
+    good: 200
+    moderate: 100
+    direction: "higher_is_better"

@@ -1,0 +1,54 @@
+# ─── Python ───────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+
+# ─── Distribuição / empacotamento ─────────────────────────────────────────────
+build/
+dist/
+*.egg-info/
+*.egg
+
+# ─── Virtual Environments ─────────────────────────────────────────────────────
+.env
+.venv
+env/
+venv/
+ENV/
+
+# ─── Jupyter Notebooks ────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# ─── Dados sensíveis / grandes ────────────────────────────────────────────────
+data/*.csv
+data/*.xlsx
+data/*.parquet
+!data/sample_customers.csv
+
+# ─── Modelos treinados ────────────────────────────────────────────────────────
+models/
+*.pkl
+*.joblib
+
+# ─── Streamlit ────────────────────────────────────────────────────────────────
+.streamlit/
+
+# ─── IDEs ─────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# ─── Logs e temporários ───────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+
+# ─── Coverage / testes ────────────────────────────────────────────────────────
+.coverage
+.pytest_cache/
+htmlcov/
