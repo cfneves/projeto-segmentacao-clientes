@@ -53,50 +53,218 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ── CSS — tema escuro corporativo ─────────────────────────────────────────────
+# ── CSS — Sistema de Design UX/AX ────────────────────────────────────────────
+# Princípio: depth through contrast.
+# Camadas de profundidade: página(#09090f) → card(#141420) → chart(#1a1a2e) → dado
+# ─────────────────────────────────────────────────────────────────────────────
 st.markdown(
     """
     <style>
-    /* Sidebar */
-    [data-testid="stSidebar"] { background-color: #1a1a2e; }
+    /* ── Reset base ─────────────────────────────────────── */
+    .stApp {
+        background-color: #09090f;
+    }
+
+    /* ── Sidebar ─────────────────────────────────────────── */
+    [data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #111118 0%, #0d0d14 100%);
+        border-right: 1px solid #2a2a40;
+    }
     [data-testid="stSidebar"] label,
     [data-testid="stSidebar"] p,
     [data-testid="stSidebar"] span,
-    [data-testid="stSidebar"] div:not([data-testid]) { color: #eaeaea !important; }
+    [data-testid="stSidebar"] small,
+    [data-testid="stSidebar"] div:not([data-testid]) {
+        color: #c8c8e0 !important;
+    }
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        color: #f0f0f0 !important;
+    }
 
-    /* KPI Cards */
+    /* ── KPI Cards ─────────────────────────────────────────
+       Border no TOPO — mais moderno que border esquerda     */
     .kpi-box {
-        background: #16213e;
-        border-left: 4px solid #e94560;
-        padding: 14px 18px;
-        border-radius: 8px;
+        background: linear-gradient(145deg, #161622 0%, #111118 100%);
+        border: 1px solid #242436;
+        border-top: 3px solid #e94560;
+        border-radius: 10px;
+        padding: 16px 20px;
         margin-bottom: 8px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-    .kpi-box.green  { border-left-color: #4ecca3; }
-    .kpi-box.blue   { border-left-color: #4895ef; }
-    .kpi-box.orange { border-left-color: #f7b731; }
-    .kpi-label { font-size: 11px; color: #8888aa; letter-spacing: 1px; text-transform: uppercase; }
-    .kpi-value { font-size: 26px; font-weight: 700; color: #ffffff; line-height: 1.3; }
-    .kpi-sub   { font-size: 11px; color: #4ecca3; margin-top: 2px; }
+    .kpi-box:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .kpi-box.green  { border-top-color: #4ecca3; }
+    .kpi-box.blue   { border-top-color: #4895ef; }
+    .kpi-box.orange { border-top-color: #f7b731; }
+    .kpi-box.purple { border-top-color: #a29bfe; }
 
-    /* Section labels */
+    .kpi-label {
+        font-size: 10px;
+        color: #6b6b8a;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+    .kpi-value {
+        font-size: 24px;
+        font-weight: 700;
+        color: #f0f0f0;
+        line-height: 1.2;
+    }
+    .kpi-sub {
+        font-size: 10px;
+        color: #6b6b8a;
+        margin-top: 4px;
+    }
+    .kpi-box.green  .kpi-sub { color: #4ecca3; }
+    .kpi-box.blue   .kpi-sub { color: #4895ef; }
+    .kpi-box.orange .kpi-sub { color: #f7b731; }
+
+    /* ── Tabs — pill navigation ─────────────────────────── */
+    .stTabs [data-baseweb="tab-list"] {
+        background: #111118;
+        border-radius: 10px;
+        padding: 4px 6px;
+        gap: 4px;
+        border: 1px solid #242436;
+    }
+    .stTabs [data-baseweb="tab"] {
+        border-radius: 7px;
+        color: #7070a0;
+        padding: 6px 16px;
+        font-size: 13px;
+        transition: all 0.2s ease;
+    }
+    .stTabs [data-baseweb="tab"]:hover {
+        background: #1a1a2e;
+        color: #c8c8e0;
+    }
+    .stTabs [data-baseweb="tab"][aria-selected="true"] {
+        background: #e94560 !important;
+        color: #ffffff !important;
+        font-weight: 600;
+        box-shadow: 0 2px 12px rgba(233,69,96,0.35);
+    }
+    .stTabs [data-baseweb="tab-highlight"] {
+        display: none;
+    }
+
+    /* ── Botão primário — CTA com glow ─────────────────── */
+    .stButton > button[kind="primary"] {
+        background: linear-gradient(135deg, #e94560 0%, #c73652 100%) !important;
+        border: none !important;
+        border-radius: 8px !important;
+        color: #ffffff !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 20px rgba(233,69,96,0.30) !important;
+        transition: all 0.2s ease !important;
+    }
+    .stButton > button[kind="primary"]:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 28px rgba(233,69,96,0.45) !important;
+    }
+    .stButton > button[kind="primary"]:active {
+        transform: translateY(0);
+    }
+
+    /* ── Botão secundário ───────────────────────────────── */
+    .stButton > button:not([kind="primary"]) {
+        background: #141420 !important;
+        border: 1px solid #2a2a40 !important;
+        color: #c8c8e0 !important;
+        border-radius: 8px !important;
+        transition: all 0.2s ease !important;
+    }
+    .stButton > button:not([kind="primary"]):hover {
+        background: #1e1e30 !important;
+        border-color: #4ecca3 !important;
+        color: #4ecca3 !important;
+    }
+
+    /* ── Metrics nativos do Streamlit ──────────────────── */
+    [data-testid="stMetric"] {
+        background: #111118;
+        border: 1px solid #242436;
+        border-radius: 10px;
+        padding: 14px 16px !important;
+    }
+    [data-testid="stMetricLabel"] { color: #7070a0 !important; }
+    [data-testid="stMetricValue"] { color: #f0f0f0 !important; }
+
+    /* ── Expanders ─────────────────────────────────────── */
+    [data-testid="stExpander"] {
+        background: #111118;
+        border: 1px solid #242436 !important;
+        border-radius: 10px !important;
+    }
+
+    /* ── DataFrames ─────────────────────────────────────── */
+    [data-testid="stDataFrame"] {
+        border: 1px solid #242436;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    /* ── Selectbox / Multiselect ────────────────────────── */
+    [data-testid="stSelectbox"] > div,
+    [data-testid="stMultiSelect"] > div {
+        background: #111118 !important;
+        border-color: #2a2a40 !important;
+        border-radius: 8px !important;
+    }
+
+    /* ── Slider ─────────────────────────────────────────── */
+    [data-testid="stSlider"] [data-baseweb="slider"] [role="slider"] {
+        background: #e94560 !important;
+        border-color: #e94560 !important;
+    }
+
+    /* ── File uploader ──────────────────────────────────── */
+    [data-testid="stFileUploader"] {
+        background: #111118;
+        border: 1px dashed #2a2a40;
+        border-radius: 10px;
+    }
+
+    /* ── Alert boxes (info/success/warning/error) ───────── */
+    [data-testid="stAlert"] {
+        border-radius: 8px !important;
+        border-left-width: 4px !important;
+    }
+
+    /* ── Divisores ──────────────────────────────────────── */
+    hr {
+        border-color: #1e1e30 !important;
+        margin: 1rem 0 !important;
+    }
+
+    /* ── Section labels (sidebar) ───────────────────────── */
     .section-label {
-        font-size: 11px; font-weight: 700;
-        color: #4ecca3; letter-spacing: 2px;
-        text-transform: uppercase; margin-bottom: 6px;
+        font-size: 10px;
+        font-weight: 700;
+        color: #4ecca3;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #242436;
     }
 
-    /* Metric badge */
-    .metric-badge {
-        display: inline-block;
-        background: #0f3460;
-        border: 1px solid #4ecca3;
-        border-radius: 4px;
-        padding: 4px 10px;
-        font-size: 12px;
-        color: #eaeaea;
-        margin: 2px;
+    /* ── Scrollbar customizada ──────────────────────────── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #09090f; }
+    ::-webkit-scrollbar-thumb {
+        background: #2a2a40;
+        border-radius: 3px;
     }
+    ::-webkit-scrollbar-thumb:hover { background: #e94560; }
     </style>
     """,
     unsafe_allow_html=True,
@@ -135,13 +303,43 @@ def kpi(label: str, value: str, sub: str, col, accent: str = "") -> None:
 
 
 def _dark(fig: go.Figure) -> go.Figure:
-    """Aplica tema escuro padrão a figuras Plotly."""
+    """
+    Aplica tema de design ao Plotly alinhado com o sistema de camadas da UI.
+
+    Camadas:  paper_bgcolor=#141420 (card)  →  plot_bgcolor=#1a1a2e (chart area)
+    O plot_bgcolor mais azulado cria contraste visual contra o card quase-preto,
+    sinalizando claramente onde os dados residem.
+    """
     fig.update_layout(
-        plot_bgcolor="#0f3460",
-        paper_bgcolor="#16213e",
-        font_color="#eaeaea",
-        legend=dict(bgcolor="rgba(0,0,0,0)", bordercolor="rgba(0,0,0,0)"),
-        margin=dict(t=50, b=20),
+        plot_bgcolor="#1a1a2e",
+        paper_bgcolor="#141420",
+        font_color="#c8c8e0",
+        font_size=12,
+        title_font_color="#f0f0f0",
+        title_font_size=14,
+        legend=dict(
+            bgcolor="rgba(20,20,32,0.8)",
+            bordercolor="#2a2a40",
+            borderwidth=1,
+            font=dict(color="#c8c8e0"),
+        ),
+        margin=dict(t=50, b=30, l=10, r=10),
+        hoverlabel=dict(
+            bgcolor="#1a1a2e",
+            bordercolor="#4ecca3",
+            font_color="#f0f0f0",
+        ),
+    )
+    # Eixos com linhas de grade sutis
+    fig.update_xaxes(
+        gridcolor="#242436",
+        linecolor="#2a2a40",
+        zerolinecolor="#2a2a40",
+    )
+    fig.update_yaxes(
+        gridcolor="#242436",
+        linecolor="#2a2a40",
+        zerolinecolor="#2a2a40",
     )
     return fig
 
