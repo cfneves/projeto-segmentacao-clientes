@@ -273,7 +273,7 @@ Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais informações
 
 **Cláudio Ferreira Neves**
 
-- Cargo: Analista de Dados Sênior
+- Cargo: Especialista em Dados II
 - Curso: Pós-Graduação em Ciência de Dados com IA — UniSENAI
 - Orientador: Prof. Willian Daniel de Mattos
 

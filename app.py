@@ -228,7 +228,7 @@ st.sidebar.header("Sobre o Projeto")
 st.sidebar.markdown(
     """
 **Autor:** Cláudio Ferreira Neves  
-**Cargo:** Analista de Dados Sênior  
+**Cargo:** Especialista em Dados II  
 **Curso:** Pós-Graduação em Ciência de Dados e IA (UniSENAI)  
 **Professor:** Willian Daniel de Mattos  
 """
