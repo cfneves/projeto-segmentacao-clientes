@@ -12,7 +12,7 @@
 | **Nome** | Segmentação de Clientes com K-Means |
 | **Tipo** | TCC de Pós-Graduação + Portfólio Profissional |
 | **Autor** | Cláudio Ferreira Neves |
-| **Instituição** | UniSENAI — Pós-Graduação em Ciência de Dados e IA |
+| **Instituição** | UniSENAI — Pós-Graduação em Ciência de Dados e Inteligência Artificial |
 | **Orientador** | Prof. Willian Daniel de Mattos |
 | **Metodologia** | CRISP-DM (6 etapas completas) |
 | **Versão** | 2.0.0 |

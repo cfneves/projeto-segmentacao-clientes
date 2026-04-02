@@ -342,7 +342,7 @@ def _results() -> Optional[PipelineResults]:
 # ══════════════════════════════════════════════════════════════════════════════
 with st.sidebar:
     st.markdown("## 🛍️ Segmentação\n### de Clientes")
-    st.caption("TCC UniSENAI — Ciência de Dados e IA")
+    st.caption("TCC UniSENAI — Ciência de Dados e Inteligência Artificial")
     st.markdown("---")
 
     # ── Navegação ──────────────────────────────────────────
@@ -441,7 +441,7 @@ with st.sidebar:
         <small>
         <b>Autor:</b> Cláudio F. Neves<br>
         <b>Orientador:</b> Prof. Willian D. de Mattos<br>
-        <b>Curso:</b> Pós-Grad. Ciência de Dados e IA<br>
+        <b>Curso:</b> Pós-Grad. Ciência de Dados e Inteligência Artificial<br>
         <b>UniSENAI</b> | 2025
         </small>
         """,

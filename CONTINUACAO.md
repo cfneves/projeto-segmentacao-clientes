@@ -8,7 +8,7 @@
 ## 1. CONTEXTO DO PROJETO
 
 **O que é:**
-TCC de Pós-Graduação em Ciência de Dados com IA (UniSENAI).
+TCC de Pós-Graduação em Ciência de Dados e Inteligência Artificial (UniSENAI).
 Segmentação de clientes de supermercado com K-Means, entregue como:
 1. Notebook Jupyter com pipeline CRISP-DM completo (documentação acadêmica)
 2. Aplicação Streamlit interativa (deployment/portfólio)

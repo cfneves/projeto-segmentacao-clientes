@@ -2,7 +2,7 @@
 
 # 🛍️ Segmentação de Clientes com K-Means
 
-**TCC — Pós-Graduação em Ciência de Dados com Inteligência Artificial**
+**TCC — Pós-Graduação em Ciência de Dados e Inteligência Artificial**
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=white)](https://python.org)
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://projeto-segmentacao-clientes-unisenai.streamlit.app/)
@@ -274,11 +274,11 @@ Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais informações
 **Cláudio Ferreira Neves**
 
 - Cargo: Especialista em Dados II
-- Curso: Pós-Graduação em Ciência de Dados com IA — UniSENAI
+- Curso: Pós-Graduação em Ciência de Dados e Inteligência Artificial — UniSENAI
 - Orientador: Prof. Willian Daniel de Mattos
 
 ---
 
 <div align="center">
-<sub>Projeto desenvolvido como TCC da Pós-Graduação em Ciência de Dados e IA — UniSENAI | 2025</sub>
+<sub>Projeto desenvolvido como TCC da Pós-Graduação em Ciência de Dados e Inteligência Artificial — UniSENAI | 2025</sub>
 </div>

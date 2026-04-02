@@ -229,7 +229,7 @@ st.sidebar.markdown(
     """
 **Autor:** Cláudio Ferreira Neves  
 **Cargo:** Especialista em Dados II  
-**Curso:** Pós-Graduação em Ciência de Dados e IA (UniSENAI)  
+**Curso:** Pós-Graduação em Ciência de Dados e Inteligência Artificial (UniSENAI)  
 **Professor:** Willian Daniel de Mattos  
 """
 )
